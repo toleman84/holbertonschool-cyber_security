@@ -1,36 +1,39 @@
-Para esta tarea, necesitamos que recopile la mayor cantidad de información posible sobre el dominio holbertonschool.com usando Shodan*
+# Informe de Análisis del Dominio holbertonschool.com
 
-* Recopile todos los rangos de IP dentro del dominio holbertonschool.com
-* Recopile las tecnologías y los marcos utilizados dentro de todos los subdominios de holbertonschool.com
-* Redacte sus notas como un informe en formato Markdown.
+## 1. Rango de Direcciones IP
+Obtener la dirección IP del dominio (si aún no la tenemos):
+comando: dig +short holbertonschool.com
+75.2.70.75
+99.83.190.102
 
-usage: ping holbertonschool.com -c 4
+Una vez que tengas la dirección IP, puedes utilizar whois para obtener detalles sobre el rango de IPs asignado
 
-PING holbertonschool.com (75.2.70.75) 56(84) bytes of data.
-64 bytes from aacb0a264e514dd48.awsglobalaccelerator.com (75.2.70.75): icmp_seq=1 ttl=244 time=17.4 ms
-64 bytes from aacb0a264e514dd48.awsglobalaccelerator.com (75.2.70.75): icmp_seq=2 ttl=244 time=17.1 ms
-64 bytes from aacb0a264e514dd48.awsglobalaccelerator.com (75.2.70.75): icmp_seq=3 ttl=244 time=18.7 ms
-64 bytes from aacb0a264e514dd48.awsglobalaccelerator.com (75.2.70.75): icmp_seq=4 ttl=244 time=17.0 ms
+A continuación se detallan las direcciones IP y rangos asociados con el dominio `holbertonschool.com`:
 
---- holbertonschool.com ping statistics ---
-4 packets transmitted, 4 received, 0% packet loss, time 3006ms
-rtt min/avg/max/mdev = 17.009/17.559/18.714/0.685 ms
+- **IP Ranges**:
+  - comando: whois 75.2.70.75
+    - NetRange:       75.2.0.0 - 75.2.191.255
+    - CIDR:           75.2.0.0/17, 75.2.128.0/18
 
-usage: shodan host 75.2.70.75
+- **IP Ranges**:
+  - comando: whois 99.83.190.102
+    - NetRange:       99.83.64.0 - 99.84.255.255
+    - CIDR:           99.84.0.0/16, 99.83.64.0/18, 99.83.128.0/17
 
-Hostnames:               aacb0a264e514dd48.awsglobalaccelerator.com;sumthing.org
-City:                    Seattle
-Country:                 United States
-Organization:            Amazon.com, Inc.
-Updated:                 2024-08-08T19:02:13.409986
-Number of open ports:    2
+## 2. Tecnologías y Frameworks Utilizados
 
-Ports:
-     80/tcp
-        |-- HTTP title: 301 Moved Permanently
-    443/tcp
-        |-- HTTP title: 301 Moved Permanently
-        |-- Cert Issuer: C=US, CN=R11, O=Let's Encrypt
-        |-- Cert Subject: CN=sumthing.org
-        |-- SSL Versions: -SSLv2, -SSLv3, -TLSv1, -TLSv1.1, TLSv1.2, TLSv1.3
+### Subdominio: `www.holbertonschool.com`
+- **Servidor Web**: Nginx
+- **Autenticación**: OpenSSH
+- **Sistema Operativo**: Ubuntu
+- **Message boards**: Discourse
+- **Programming languages**: Ruby
+- **Framework**: Ruby on Rails
 
+## 3. Observaciones Adicionales
+
+- **Seguridad**: Algunos subdominios pueden mostrar vulnerabilidades en Shodan, como versiones desactualizadas de software.
+
+## 4. Conclusiones
+
+Este análisis revela que `holbertonschool.com` utiliza una variedad de tecnologías y frameworks en diferentes subdominios.
