@@ -29,14 +29,14 @@ Una vez teniendo la dirección IP, utilizamos whois para obtener detalles sobre 
 A continuación se detallan las direcciones IP y rangos asociados con el dominio `holbertonschool.com`:
 
 - **IP Ranges**:
- - con el comando whois:
+  - con el comando whois:
   ```
   comando: whois 75.2.70.75
   NetRange:       75.2.0.0 - 75.2.191.255
   CIDR:           75.2.0.0/17, 75.2.128.0/18
   ```
 - **IP Ranges**:
- - con el comando whois:
+  - con el comando whois:
   ```
   comando: whois 99.83.190.102
   NetRange:       99.83.64.0 - 99.84.255.255
