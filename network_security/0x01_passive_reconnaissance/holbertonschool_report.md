@@ -46,9 +46,9 @@ Below are the IP addresses and ranges associated with the domain `holbertonschoo
 ## 2. Technologies and Frameworks Used
 
 ### Subdominio: `www.holbertonschool.com` (using the Shodan tool)
-- **Servidor Web**: Nginx
-- **Autenticación**: OpenSSH
-- **Sistema Operativo**: Ubuntu
+- **Web Server**: Nginx
+- **Authentication**: OpenSSH
+- **Operating system**: Ubuntu
 - **Message boards**: Discourse
 - **Programming languages**: Ruby
 - **Framework**: Ruby on Rails
