@@ -1,1 +1,1 @@
-/hidden-directory/, /plymouth-montserrat/, 16x16
+/hidden-directory, /plymouth-montserrat, 16x16
