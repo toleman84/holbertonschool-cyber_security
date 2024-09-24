@@ -1,1 +1,1 @@
-wp-login.php, /ta-holbie-malta, fa54dbf2f61bd2e0188e47f5f578f736
+/wp-login.php, /ta-holbie-malta, fa54dbf2f61bd2e0188e47f5f578f736
