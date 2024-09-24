@@ -1,2 +1,1 @@
-/wp-admin, wp-upload.php, wordpress 
-
+/hidden-directory/, /plymouth-montserrat/, fa54dbf2f61bd2e0188e47f5f578f736
