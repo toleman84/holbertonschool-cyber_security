@@ -1,6 +1,2 @@
 #!/bin/bash
-string="$1"
-rand_string=$(openssl rand -base64 16)
-passwd=$rand_string$string
-hash=$(echo -n "$passwd" | openssl dgst -sha512)
-echo "$hash" > 3_hash.txt
+echo -n "$1$(openssl rand -base64 16)" | openssl dgst -sha512 | awk '{print}' > 3_hash.txt
