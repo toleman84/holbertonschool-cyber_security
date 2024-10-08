@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo john --wordlist=/../../../usr/share/wordlists/rockyou.txt --fork=4 --format=cryptoSafe crack.txt
+john --wordlist=/usr/share/wordlists/rockyou.txt --format=Raw-SHA256 --fork=4 "$1"
