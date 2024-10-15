@@ -1,2 +1,2 @@
 #!/bin/bash
-sshd -T
+sshd -T | grep 
