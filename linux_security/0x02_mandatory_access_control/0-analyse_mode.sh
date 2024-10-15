@@ -1,2 +1,2 @@
-#bin/bash
+#!/bin/bash
 sestatus | head -n 1
