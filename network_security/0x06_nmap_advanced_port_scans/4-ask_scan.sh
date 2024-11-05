@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo nmap -sA -p $2 -T1 $1
+sudo nmap -sA -reason -p $2 -T1 $1
