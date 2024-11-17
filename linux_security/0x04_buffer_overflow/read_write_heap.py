@@ -1,12 +1,26 @@
 #!/usr/bin/python3
-import sys
 
 """
 Script to read and modify strings in the heap section of an active process
 
+Usage:
+    read_write_heap.py pid search_string replace_string
+
+Arguments:
+    pid (int): ID of the target process.
+    search_string (str): String to search for in the process heap.
+    replace_string (str): String to replace the found string with.
+
 Requirements:
     - script must be run with superuser privileges to access /proc/{pid}/mem
+
+Common errors:
+    - The PID does not correspond to an active process.
+    - The search string is not present in the heap.
+    - You do not have sufficient permissions to read or write to memory.
 """
+
+import sys
 
 
 def find_heap(pid):
