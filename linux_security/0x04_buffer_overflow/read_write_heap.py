@@ -32,9 +32,9 @@ def find_heap(pid):
 
 def read_memory(pid, start, end):
     """Reads memory from the specified address range"""
-    mem_path = f"proc/{pid}/mem"
+    mem_path = f"/proc/{pid}/mem"
     try:
-        with open(mem_path, 'rb') as file:
+        with open(mem_path, 'r+b') as file:
             file.seek(start)
             print("read function:")
             print(f"file: {file}")
@@ -45,7 +45,7 @@ def read_memory(pid, start, end):
 
 def write_memory(pid, start, data):
     """writes data to the specified memoy address range"""
-    mem_path = f"/proc/{pid}/mem)"
+    mem_path = f"/proc/{pid}/mem"
     try:
         with open(mem_path, 'r+b') as file:
             file.seek(start)
@@ -60,6 +60,10 @@ def replace_string_in_heap(pid, search_string, replace_string):
     search_bytes = search_string.encode('ascii')
     replace_bytes = replace_string.encode('ascii')
     print(f"bytes: {search_bytes}, {replace_bytes}")
+    
+    if len(replace_bytes) > len(search_bytes):
+        print("Error: replace string is too longer than search string")
+        sys.exit(1)
 
     # find the heap's address range
     start, end = find_heap(pid)
@@ -68,6 +72,9 @@ def replace_string_in_heap(pid, search_string, replace_string):
     # search for the string in the heap
     index = heap_data.find(search_bytes)
     print(f"index: {index}")
+    if index == -1:
+        print(f"Error: string: '{search_string}' not found in a heap")
+        sys.exit(1)
 
     print(f"found '{search_string}' at address {hex(start + index)}")
 
@@ -78,9 +85,17 @@ def replace_string_in_heap(pid, search_string, replace_string):
 
 def main():
     """main function"""
+    if len(sys.argv) != 4:
+        print("Usage: read_write_heap.py pid search_string replace_string")
+        sys.exit(1)
+
     pid = sys.argv[1]
     search_string = sys.argv[2]
     replace_string = sys.argv[3]
+
+    if not search_string.isascii() or not replace_string.isascii():
+        print("Error: Both search_string and replace_string must be ASCII.")
+        sys.exit(1)
 
     replace_string_in_heap(pid, search_string, replace_string)
     print(f"main function process number: {pid}")
