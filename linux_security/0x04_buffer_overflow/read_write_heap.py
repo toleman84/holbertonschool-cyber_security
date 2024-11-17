@@ -6,20 +6,20 @@ import sys
 Script to read and modify strings in the heap section of an active process
 
 Usage:
-read_write_heap.py pid search_string replace_string
+    read_write_heap.py pid search_string replace_string
 
 Arguments:
-pid (int): ID of the target process.
-search_string (str): String to search for in the process heap.
-replace_string (str): String to replace the found string with.
+    pid (int): ID of the target process.
+    search_string (str): String to search for in the process heap.
+    replace_string (str): String to replace the found string with.
 
 Requirements:
-- The script must be run with superuser privileges to access /proc/{pid}/mem.
+    - The script must be run with superuser privileges to access /proc/{pid}/mem.
 
 Common errors:
-- The PID does not correspond to an active process.
-- The search string is not present in the heap.
-- You do not have sufficient permissions to read or write to memory.
+    - The PID does not correspond to an active process.
+    - The search string is not present in the heap.
+    - You do not have sufficient permissions to read or write to memory.
 """
 
 
@@ -183,7 +183,6 @@ def replace_string_in_heap(pid, search_string, replace_string):
         `/proc/{pid}/mem` before using this function.
         - If the `replace_string` is longer than the `search_string`, the
         function will terminate with an error.
-
     """
     print(f"strings: {search_string}, {replace_string}")
     search_bytes = search_string.encode('ascii')
@@ -215,21 +214,6 @@ def replace_string_in_heap(pid, search_string, replace_string):
 
 def main():
     """
-    The main entry point of the program. It handles command-line argument
-    parsing and     invokes the functionality to replace a string in the
-    heap of a running process.
-
-    This function performs the following tasks:
-    1. Validates the number of command-line arguments.
-    2. Retrieves the process ID (`pid`), the string to search for, and the
-    string to replace it with.
-    3. Ensures that both `search_string` and `replace_string` are valid ASCII
-    strings.
-    4. Calls the `replace_string_in_heap()` function to perform the string
-    replacement in the heap memory of the specified process.
-    5. Displays an error message and terminates the program if there are any
-    issues with the arguments or if an error occurs during execution.
-
     Args:
         None: This function only interacts with the command-line arguments.
 
