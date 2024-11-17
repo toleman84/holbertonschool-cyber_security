@@ -14,7 +14,7 @@ Arguments:
     replace_string (str): String to replace the found string with.
 
 Requirements:
-    - The script must be run with superuser privileges to access /proc/{pid}/mem.
+    - script must be run with superuser privileges to access /proc/{pid}/mem
 
 Common errors:
     - The PID does not correspond to an active process.
