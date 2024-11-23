@@ -38,14 +38,11 @@ def find_heap(pid):
         SystemExit: If the heap is not found in the maps.
     """
     maps_path = f"/proc/{pid}/maps"
-    print("find heap function:")
     try:
         with open(maps_path, 'r') as file:
             for line in file:
                 if 'heap' in line:
-                    print(f"line: {line}")
                     start, end = line.split(' ')[0].split('-')
-                    print(f"A LINE: {start}, {end}")
                     return int(start, 16), int(end, 16)
     except FileNotFoundError:
         print(f"Error: Process with pid {pid} not found")
@@ -89,8 +86,6 @@ def read_memory(pid, start, end):
     try:
         with open(mem_path, 'r+b') as file:
             file.seek(start)
-            print("read function:")
-            print(f"file: {file}")
             return file.read(end - start)
     except PermissionError:
         print(f"Error: Permission denied while reading mem for process {pid}")
@@ -184,10 +179,8 @@ def replace_string_in_heap(pid, search_string, replace_string):
         - If the `replace_string` is longer than the `search_string`, the
         function will terminate with an error.
     """
-    print(f"strings: {search_string}, {replace_string}")
     search_bytes = search_string.encode('ascii')
     replace_bytes = replace_string.encode('ascii')
-    print(f"bytes: {search_bytes}, {replace_bytes}")
 
     if len(replace_bytes) > len(search_bytes):
         print("Error: replace string is too longer than search string")
@@ -199,17 +192,13 @@ def replace_string_in_heap(pid, search_string, replace_string):
     heap_d = read_memory(pid, start, end)
     # search for the string in the heap
     inx = heap_d.find(search_bytes)
-    print(f"index: {inx}")
     if inx == -1:
         print(f"Error: string: '{search_string}' not found in a heap")
         sys.exit(1)
 
-    print(f"found '{search_string}' at address {hex(start + inx)}")
-
     # replace the string in memory
     new_data = heap_d[:inx] + replace_bytes + heap_d[inx + len(search_bytes):]
     write_memory(pid, start + inx, new_data[inx:])
-    print(f"replaced '{search_string}' with '{replace_string}' int he heap")
 
 
 def main():
@@ -248,7 +237,6 @@ def main():
         sys.exit(1)
 
     replace_string_in_heap(pid, search_string, replace_string)
-    print(f"main function process number: {pid}")
 
 
 if __name__ == "__main__":
