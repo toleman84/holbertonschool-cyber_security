@@ -9,9 +9,9 @@ def merge_json_files(file1_path, file2_path)
     data2 = JSON.parse(file_content_2)
 
     # merge_data = data2.concat(data1)
-    data2 += data1
+    data1 += data2
 
     File.open(file2_path, "w") do |f|
-        f.write(JSON.pretty_generate(data2))
+        f.write(JSON.pretty_generate(data1))
     end
 end
