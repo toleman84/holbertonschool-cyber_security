@@ -7,5 +7,5 @@ def get_request(url)
     res = Net::HTTP.get_response(uri)
 
     puts "Response status: #{res.code} OK"
-    puts "Response body: \n#{res.body}"
+    puts "Response body:\n#{res.body}"
 end
