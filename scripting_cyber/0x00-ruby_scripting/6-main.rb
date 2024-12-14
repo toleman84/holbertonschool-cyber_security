@@ -1,3 +1,3 @@
 require_relative '6-get'
 
-get_request('http://jsonplaceholder.typicode.com/posts/1')
+get_request('http://www.google.com/asdads')

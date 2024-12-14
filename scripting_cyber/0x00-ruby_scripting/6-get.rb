@@ -3,9 +3,14 @@
 require 'net/http'
 
 def get_request(url)
-    uri = URI(url)
-    res = Net::HTTP.get_response(uri)
+        uri = URI(url)
+        res = Net::HTTP.get_response(uri)
 
-    puts "Response status: #{res.code} #{res.message}"
-    puts "Response body:\n#{res.body}"
+        if res.body.nil? || res.body.empty?
+            puts "Response status: #{res.code} #{res.message}"
+            puts "Response body:\n{\n}"
+        else
+            puts "Response status: #{res.code} #{res.message}"
+            puts "Response body:\n#{res.body}"
+        end
 end
