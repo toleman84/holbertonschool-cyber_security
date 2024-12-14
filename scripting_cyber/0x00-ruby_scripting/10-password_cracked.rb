@@ -3,8 +3,9 @@
 require 'digest'
 
 def craker_pwd
-    if ARGV.empty?
+    if ARGV.length != 2
         puts "Usage: 10-password_cracked.rb HASHED_PASSWORD DICTIONARY_FILE"
+        exit
     end
     hashed_password = ARGV[0]
     dictionary_file = ARGV[1]
