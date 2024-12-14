@@ -10,8 +10,10 @@ def download
         path = ARGV[1]
 
         URI.open(url) do |file|
+            puts "Downloading file from #{url}"
             File.open(path, 'wb') do |out|
                 out.write(file.read)
+                puts "File downloaded and saved to #{path}"
             end
         end
     end
