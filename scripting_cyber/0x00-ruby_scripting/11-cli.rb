@@ -16,6 +16,7 @@ end
 
 # methods to save tasks to the file
 def save_tasks(tasks)
+    tasks.uniq!
     File.open(TASK_FILE, 'w') do |file|
         tasks.each { |task| file.puts(task) }
     end
