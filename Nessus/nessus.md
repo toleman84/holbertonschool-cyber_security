@@ -11,7 +11,7 @@ Scan Policies: Scan options were adjusted to minimize impact on the target syste
 **Advanced Scanning Profile**: Plugins have been enabled to detect web server misconfigurations, certificate errors, and unsafe practices such as insecure cookies.
 
 # Running the Scan
-![Project Screenshot](https://via.placeholder.com/800x400.png?text=Cyber+Security+Projects)
+![Project Screenshot](https://github.com/toleman84/holbertonschool-cyber_security/blob/b3a1805a0a8ca48198afc6ff2b2701c9bfecbea7/Nessus/1.png)
 
 ## Scan Launch Process
 From the Nessus dashboard, I selected the "Web Application Testing" template.
