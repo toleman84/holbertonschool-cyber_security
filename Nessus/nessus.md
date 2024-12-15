@@ -11,7 +11,7 @@ Scan Policies: Scan options were adjusted to minimize impact on the target syste
 **Advanced Scanning Profile**: Plugins have been enabled to detect web server misconfigurations, certificate errors, and unsafe practices such as insecure cookies.
 
 # Running the Scan
-![Project Screenshot](https://github.com/toleman84/holbertonschool-cyber_security/blob/c83e7501ba0d95f3f62973e762b311eba57a59e2/Nessus/2.png)
+![Scan Screenshot](https://github.com/toleman84/holbertonschool-cyber_security/blob/c83e7501ba0d95f3f62973e762b311eba57a59e2/Nessus/2.png)
 
 ## Scan Launch Process
 From the Nessus dashboard, I selected the "Web Application Testing" template.
@@ -31,6 +31,7 @@ High Severity:                      [0].
 Medium/Low Severity:                [1].
 
 # Summary of Vulnerabilities
+![Vuln Screenshot](https://github.com/toleman84/holbertonschool-cyber_security/blob/a16af34a77e35fb7a960b4db1c6f34a04bf5d4f0/Nessus/1.png)
 **Low** ICMP Timestamp Request Remote Date Disclosure
 ### Description
 The remote host answers to an ICMP timestamp request. This allows an attacker to know the date that is set on the targeted machine, which may assist an unauthenticated, remote attacker in defeating time-based authentication protocols.
